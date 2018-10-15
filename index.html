@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset=utf-8>
+    <title>three js를 이용한 선 그리기</title>
+    <style>
+      body { margin: 0; }
+      canvas { width: 100%; height: 100% }
+    </style>
+  </head>
+  <body>
+    <script src="./assets/js/three.min.js"></script>
+    <script>
+      var scene = new THREE.Scene();
+      var camera = new THREE.PerspectiveCamera( 79, window.innerWidth/window.innerHeight, 0.1, 1000 );
+      var renderer = new THREE.WebGLRenderer();
+      
+      renderer.setSize( window.innerWidth, window.innerHeight );
+      document.body.appendChild( renderer.domElement );
+      camera.position.z = 80;
+      
+      var material1 = new THREE.LineBasicMaterial( { color: 0xff00c3  } );
+      var geometry1 = new THREE.Geometry();
+
+      // O
+      geometry1.vertices.push(new THREE.Vector3(-71, 0, 0));
+      geometry1.vertices.push(new THREE.Vector3(-71, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(-57, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(-57, 0, 0));
+      geometry1.vertices.push(new THREE.Vector3(-71, 0, 0));
+      geometry1.vertices.push(new THREE.Vector3(-71, 0, -5));
+      geometry1.vertices.push(new THREE.Vector3(-71, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(-71, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(-71, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(-57, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(-57, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(-57, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(-57, 0, -5));
+      geometry1.vertices.push(new THREE.Vector3(-57, 0, 0));
+      geometry1.vertices.push(new THREE.Vector3(-57, 0, -5));
+      geometry1.vertices.push(new THREE.Vector3(-71, 0, -5));
+    
+      // o_k 연결
+      geometry1.vertices.push(new THREE.Vector3(-50, 0, -5));
+      geometry1.vertices.push(new THREE.Vector3(-50, 0, 0));
+
+      // K
+      geometry1.vertices.push(new THREE.Vector3(-50, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(-46, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(-46, 11, 0));
+      geometry1.vertices.push(new THREE.Vector3(-42, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(-37, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(-46, 7, 0));
+      geometry1.vertices.push(new THREE.Vector3(-37, 0, 0));
+      geometry1.vertices.push(new THREE.Vector3(-42, 0, 0));
+      geometry1.vertices.push(new THREE.Vector3(-46, 3, 0));
+      geometry1.vertices.push(new THREE.Vector3(-46, 0, 0));
+      geometry1.vertices.push(new THREE.Vector3(-50, 0, 0));
+      geometry1.vertices.push(new THREE.Vector3(-50, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(-50, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(-50, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(-50, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(-46, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(-46, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(-46, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(-46, 11, -5));
+      geometry1.vertices.push(new THREE.Vector3(-46, 11, 0));
+      geometry1.vertices.push(new THREE.Vector3(-46, 11, -5));
+      geometry1.vertices.push(new THREE.Vector3(-42, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(-42, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(-42, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(-37, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(-37, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(-37, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(-46, 7, -5));
+      geometry1.vertices.push(new THREE.Vector3(-46, 7, 0));
+      geometry1.vertices.push(new THREE.Vector3(-46, 7, -5));
+      geometry1.vertices.push(new THREE.Vector3(-37, 0, -5));
+      geometry1.vertices.push(new THREE.Vector3(-37, 0, 0));
+      geometry1.vertices.push(new THREE.Vector3(-37, 0, -5));
+      geometry1.vertices.push(new THREE.Vector3(-42, 0, -5));
+      geometry1.vertices.push(new THREE.Vector3(-42, 0, 0));
+      geometry1.vertices.push(new THREE.Vector3(-42, 0, -5));
+      geometry1.vertices.push(new THREE.Vector3(-46, 3, -5));
+      geometry1.vertices.push(new THREE.Vector3(-46, 3, 0));
+      geometry1.vertices.push(new THREE.Vector3(-46, 3, -5));
+      geometry1.vertices.push(new THREE.Vector3(-46, 0, -5));
+      geometry1.vertices.push(new THREE.Vector3(-46, 0, 0));
+      geometry1.vertices.push(new THREE.Vector3(-46, 0, -5));
+      geometry1.vertices.push(new THREE.Vector3(-50, 0, -5));
+      geometry1.vertices.push(new THREE.Vector3(-50, 0, 0));
+      geometry1.vertices.push(new THREE.Vector3(-50, 0, -5));
+      geometry1.vertices.push(new THREE.Vector3(-50, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(-50, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(-50, 15, -5));
+
+      // k_y 연결
+      geometry1.vertices.push(new THREE.Vector3(-46, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(-46, 11, -5));
+      geometry1.vertices.push(new THREE.Vector3(-42, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(-37, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(-32, 15, -5));
+
+      // Y
+      geometry1.vertices.push(new THREE.Vector3(-32, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(-32, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(-27, 7, 0));
+      geometry1.vertices.push(new THREE.Vector3(-27, 0, 0));
+      geometry1.vertices.push(new THREE.Vector3(-22, 0, 0));
+      geometry1.vertices.push(new THREE.Vector3(-22, 7, 0));
+      geometry1.vertices.push(new THREE.Vector3(-17, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(-22, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(-24.5, 10, 0));
+      geometry1.vertices.push(new THREE.Vector3(-27, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(-32, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(-32, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(-32, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(-32, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(-27, 7, -5));
+      geometry1.vertices.push(new THREE.Vector3(-27, 7, 0));
+      geometry1.vertices.push(new THREE.Vector3(-27, 7, -5));
+      geometry1.vertices.push(new THREE.Vector3(-27, 0, -5));
+      geometry1.vertices.push(new THREE.Vector3(-27, 0, 0));
+      geometry1.vertices.push(new THREE.Vector3(-27, 0, -5));
+      geometry1.vertices.push(new THREE.Vector3(-22, 0, -5));
+      geometry1.vertices.push(new THREE.Vector3(-22, 0, 0));
+      geometry1.vertices.push(new THREE.Vector3(-22, 0, -5));
+      geometry1.vertices.push(new THREE.Vector3(-22, 7, -5));
+      geometry1.vertices.push(new THREE.Vector3(-22, 7, 0));
+      geometry1.vertices.push(new THREE.Vector3(-22, 7, -5));
+      geometry1.vertices.push(new THREE.Vector3(-17, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(-17, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(-17, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(-22, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(-22, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(-22, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(-24.5, 10, -5));
+      geometry1.vertices.push(new THREE.Vector3(-24.5, 10, 0));
+      geometry1.vertices.push(new THREE.Vector3(-24.5, 10, -5));
+      geometry1.vertices.push(new THREE.Vector3(-27, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(-27, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(-27, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(-32, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(-32, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(-32, 15, -5));
+
+      // y_o 연결
+      geometry1.vertices.push(new THREE.Vector3(-27, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(-24.5, 10, -5));
+      geometry1.vertices.push(new THREE.Vector3(-22, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(-10, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(-10, 15, 0));
+
+      // O
+      geometry1.vertices.push(new THREE.Vector3(-10, 0, 0));
+      geometry1.vertices.push(new THREE.Vector3(0, 0, 0));
+      geometry1.vertices.push(new THREE.Vector3(0, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(-10, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(-10, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(-10, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(-10, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(-10, 0, -5));
+      geometry1.vertices.push(new THREE.Vector3(-10, 0, 0));
+      geometry1.vertices.push(new THREE.Vector3(-10, 0, -5));
+      geometry1.vertices.push(new THREE.Vector3(0, 0, -5));
+      geometry1.vertices.push(new THREE.Vector3(0, 0, 0));
+      geometry1.vertices.push(new THREE.Vector3(0, 0, -5));
+      geometry1.vertices.push(new THREE.Vector3(0, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(0, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(0, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(-10, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(-10, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(-10, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(10, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(10, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(10, 0, 0));
+      geometry1.vertices.push(new THREE.Vector3(20, 0, 0));
+      geometry1.vertices.push(new THREE.Vector3(20, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(10, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(10, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(10, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(10, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(10, 0, -5));
+      geometry1.vertices.push(new THREE.Vector3(10, 0, 0));
+      geometry1.vertices.push(new THREE.Vector3(10, 0, -5));
+      geometry1.vertices.push(new THREE.Vector3(20, 0, -5));
+      geometry1.vertices.push(new THREE.Vector3(20, 0, 0));
+      geometry1.vertices.push(new THREE.Vector3(20, 0, -5));
+      geometry1.vertices.push(new THREE.Vector3(20, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(20, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(20, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(10, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(10, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(10, 15, -5));
+
+      // o_n 연결
+      geometry1.vertices.push(new THREE.Vector3(30, 15, -5));
+      
+      // n
+      geometry1.vertices.push(new THREE.Vector3(30, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(30, 0, 0));
+      geometry1.vertices.push(new THREE.Vector3(36, 0, 0));
+      geometry1.vertices.push(new THREE.Vector3(36, 10, 0));
+      geometry1.vertices.push(new THREE.Vector3(40, 0, 0));
+      geometry1.vertices.push(new THREE.Vector3(47, 0, 0));
+      geometry1.vertices.push(new THREE.Vector3(47, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(42, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(42, 10, 0));
+      geometry1.vertices.push(new THREE.Vector3(40, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(30, 15, 0));
+      geometry1.vertices.push(new THREE.Vector3(30, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(30, 0, -5));
+      geometry1.vertices.push(new THREE.Vector3(36, 0, -5));
+      geometry1.vertices.push(new THREE.Vector3(36, 10, -5));
+      geometry1.vertices.push(new THREE.Vector3(40, 0, -5));
+      geometry1.vertices.push(new THREE.Vector3(47, 0, -5));
+      geometry1.vertices.push(new THREE.Vector3(47, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(42, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(42, 10, -5));
+      geometry1.vertices.push(new THREE.Vector3(40, 15, -5));
+      geometry1.vertices.push(new THREE.Vector3(30, 15, -5));
+
+      var line = new THREE.Line( geometry1, material1 );
+      scene.add( line );
+      
+      animate();
+      function animate(){
+        requestAnimationFrame( animate );
+        line.rotation.x -= 0.03;
+        line.rotation.y -= 0.04;
+        renderer.render(scene, camera);
+      }
+    </script>
+  </body>
+</html>
